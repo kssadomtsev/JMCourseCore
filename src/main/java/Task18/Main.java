@@ -18,7 +18,7 @@ class Main {
 
         @Override
         public Sendable processMail(Sendable mail) {
-            if (mail instanceof MailMessage) {
+            if (mail instanceof MailMessage ) {
                 final MailMessage mailMessage = (MailMessage) mail;
                 if (mailMessage.getFrom().contains(AUSTIN_POWERS) | mailMessage.getTo().contains(AUSTIN_POWERS)) {
                     logger.log(Level.WARNING, "Detected target mail correspondence: from {0} to {1} \"{2}\"", new Object[]{mailMessage.getFrom(), mailMessage.getTo(), mailMessage.getMessage()});
