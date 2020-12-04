@@ -8,13 +8,11 @@ public class Task7 {
         Scanner lineScanner = new Scanner(System.in);
         while (lineScanner.hasNext()) {
             if (lineScanner.hasNextDouble()) {
-                double d = lineScanner.nextDouble();
-                sum += d;
+                sum += lineScanner.nextDouble();
             } else {
                 lineScanner.next();
             }
         }
-        lineScanner.close();
         System.out.printf("%.6f", sum);
     }
 }

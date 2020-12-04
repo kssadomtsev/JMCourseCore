@@ -14,14 +14,13 @@ public class Task2 {
     }
 
     public static void print(InputStream inputStream, OutputStream outputStream) throws IOException {
-    int data = inputStream.read();
-    while (data != -1) {
-        if ((byte) data % 2 == 0) {
-            outputStream.write(data);
+        int data;
+        while ((data = inputStream.read()) != -1) {
+            if (data % 2 == 0) {
+                outputStream.write(data);
+            }
         }
-        data = inputStream.read();
+        outputStream.flush();
     }
-    outputStream.flush();
-}
 
 }

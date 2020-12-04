@@ -21,27 +21,25 @@ public class Task8 {
         }
         Animal[] animalsOut = deserializeAnimalArray(yourBytes);
         System.out.println(Arrays.toString(animalsOut));
-
     }
 
-public static Animal[] deserializeAnimalArray(byte[] data) {
-    if (data == null) {
-        throw new IllegalArgumentException();
-    }
-    Animal[] animals = null;
-    ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(data);
-    try (ObjectInputStream objectInputStream = new ObjectInputStream(byteArrayInputStream)) {
-        int size = objectInputStream.readInt();
-        animals = new Animal[size];
-        for (int i = 0; i < size; i++) {
-            animals[i] = (Animal) objectInputStream.readObject();
-
+    public static Animal[] deserializeAnimalArray(byte[] data) {
+        if (data == null) {
+            throw new IllegalArgumentException();
         }
-    } catch (Exception e) {
-        throw new IllegalArgumentException();
+        Animal[] animals = null;
+        try (ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(data); ObjectInputStream objectInputStream = new ObjectInputStream(byteArrayInputStream)) {
+            int size = objectInputStream.readInt();
+            animals = new Animal[size];
+            for (int i = 0; i < size; i++) {
+                animals[i] = (Animal) objectInputStream.readObject();
+
+            }
+        } catch (Exception e) {
+            throw new IllegalArgumentException();
+        }
+        return animals;
     }
-    return animals;
-}
 
     static class Animal implements Serializable {
         private final String name;

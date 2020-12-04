@@ -13,10 +13,9 @@ public class Task1 {
 
     public static int sumOfStream(InputStream inputStream) throws IOException {
         int sum = 0;
-        int data = inputStream.read();
-        while (data != -1) {
+        int data;
+        while ((data = inputStream.read()) != -1) {
             sum += (byte) data;
-            data = inputStream.read();
         }
         return sum;
     }
