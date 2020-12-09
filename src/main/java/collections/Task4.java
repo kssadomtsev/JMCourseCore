@@ -16,14 +16,14 @@ public class Task4 {
 //        }
     }
 
-public static Map<String, Long> getSalesMap(Reader reader) {
-    Map<String, Long> map = new HashMap<>();
-    Scanner scanner = new Scanner(reader);
-    while (scanner.hasNext()){
-        map.merge(scanner.next(), scanner.nextLong(), Long::sum);
+    public static Map<String, Long> getSalesMap(Reader reader) {
+        Map<String, Long> map = new HashMap<>();
+        Scanner scanner = new Scanner(reader);
+        while (scanner.hasNext()) {
+            map.merge(scanner.next(), scanner.nextLong(), Long::sum);
+        }
+        scanner.close();
+        map.forEach((key, value) -> System.out.println(key + " " + value));
+        return map;
     }
-    scanner.close();
-    map.forEach((key, value) -> System.out.println(key + " " + value));
-    return map;
-}
 }
