@@ -23,7 +23,7 @@ public class Task4 {
             map.merge(scanner.next(), scanner.nextLong(), Long::sum);
         }
         scanner.close();
-        map.forEach((key, value) -> System.out.println(key + " " + value));
+        //map.forEach((key, value) -> System.out.println(key + " " + value));
         return map;
     }
 }
